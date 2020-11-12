@@ -1,6 +1,12 @@
 
-###Laravel passport client
+#Laravel passport client
+[![Packagist](https://img.shields.io/packagist/v/webysther/packagist-mirror.svg?style=flat-square)](https://packagist.org/packages/hanbz/passport-client)
 
+<p align="center">
+<a href="https://packagist.org/packages/hanbz/passport-client"><img src="https://img.shields.io/packagist/dt/hanbz/passport-client" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/socialite"><img src="https://img.shields.io/packagist/v/hanbz/passport-client" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/socialite"><img src="https://img.shields.io/packagist/l/hanbz/passport-client" alt="License"></a>
+</p>
 
 ## Introduction
 
