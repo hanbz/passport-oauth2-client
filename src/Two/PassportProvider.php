@@ -4,32 +4,23 @@ namespace hanbz\PassportClient\Two;
 
 use Illuminate\Support\Arr;
 
-class GoogleProvider extends AbstractProvider implements ProviderInterface
+class PassportProvider extends AbstractProvider implements ProviderInterface
 {
-    /**
-     * The separating character for the requested scopes.
-     *
-     * @var string
-     */
-    protected $scopeSeparator = ' ';
+    protected $domain = '';
 
     /**
      * The scopes being requested.
      *
      * @var array
      */
-    protected $scopes = [
-        'openid',
-        'profile',
-        'email',
-    ];
+    protected $scopes = ['*'];
 
     /**
      * {@inheritdoc}
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://accounts.google.com/o/oauth2/auth', $state);
+        return $this->buildAuthUrlFromBase($this->domain . '/oauth/authorize', $state);
     }
 
     /**
@@ -37,7 +28,7 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl()
     {
-        return 'https://www.googleapis.com/oauth2/v4/token';
+        return $this->domain . '/oauth/token';
     }
 
     /**
@@ -45,13 +36,13 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get('https://www.googleapis.com/oauth2/v3/userinfo', [
+        $response = $this->getHttpClient()->get($this->domain . '/api/user', [
             'query' => [
                 'prettyPrint' => 'false',
             ],
             'headers' => [
                 'Accept' => 'application/json',
-                'Authorization' => 'Bearer '.$token,
+                'Authorization' => 'Bearer ' . $token,
             ],
         ]);
 
@@ -76,5 +67,11 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface
             'avatar' => $avatarUrl = Arr::get($user, 'picture'),
             'avatar_original' => $avatarUrl,
         ]);
+    }
+
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+        return $this;
     }
 }

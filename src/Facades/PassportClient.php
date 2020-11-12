@@ -9,7 +9,7 @@ use hanbz\PassportClient\Contracts\Factory;
  * @method static \hanbz\PassportClient\Contracts\Provider driver(string $driver = null)
  * @see \hanbz\PassportClient\SocialiteManager
  */
-class Socialite extends Facade
+class PassportClient extends Facade
 {
     /**
      * Get the registered name of the component.

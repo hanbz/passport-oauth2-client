@@ -1,11 +1,11 @@
 <?php
 
-namespace Laravel\Socialite\Tests;
+namespace hanbz\PassportClient\Tests;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Laravel\Socialite\Two\LinkedInProvider;
-use Laravel\Socialite\Two\User;
+use hanbz\PassportClient\Two\LinkedInProvider;
+use hanbz\PassportClient\Two\User;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Socialite;
+namespace hanbz\PassportClient;
 
 use ArrayAccess;
-use Laravel\Socialite\Contracts\User;
+use hanbz\PassportClient\Contracts\User;
 
 abstract class AbstractUser implements ArrayAccess, User
 {

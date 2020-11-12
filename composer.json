@@ -1,17 +1,20 @@
 {
-    "name": "laravel/socialite",
-    "description": "Laravel wrapper around OAuth 1 & OAuth 2 libraries.",
-    "keywords": ["oauth", "laravel"],
+    "name": "hanbz/passport-client",
+    "description": "Laravel wrapper around passport client OAuth2 libraries.",
+    "keywords": [
+        "OAuth2",
+        "laravel",
+        "Client"
+    ],
     "license": "MIT",
-    "homepage": "https://laravel.com",
     "support": {
-        "issues": "https://github.com/laravel/socialite/issues",
-        "source": "https://github.com/laravel/socialite"
+        "issues": "https://github.com/hanbz/passport-oauth2-client/issues",
+        "source": "https://github.com/hanbz/passport-oauth2-client"
     },
     "authors": [
         {
-            "name": "Taylor Otwell",
-            "email": "taylor@laravel.com"
+            "name": "hanbz",
+            "email": "hanbzsky@yahoo.com.tw"
         }
     ],
     "require": {
@@ -30,24 +33,24 @@
     },
     "autoload": {
         "psr-4": {
-            "Laravel\\Socialite\\": "src/"
+            "hanbz\\PassportClient\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Laravel\\Socialite\\Tests\\": "tests/"
+            "hanbz\\PassportClient\\Tests\\": "tests/"
         }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "5.x-dev"
+            "dev-master": "1.x-dev"
         },
         "laravel": {
             "providers": [
-                "Laravel\\Socialite\\SocialiteServiceProvider"
+                "hanbz\\PassportClient\\SocialiteServiceProvider"
             ],
             "aliases": {
-                "Socialite": "Laravel\\Socialite\\Facades\\Socialite"
+                "PassportClient": "hanbz\\PassportClient\\Facades\\Socialite"
             }
         }
     },

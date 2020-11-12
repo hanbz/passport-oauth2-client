@@ -1,13 +1,14 @@
 <?php
 
-namespace Laravel\Socialite\Two;
+namespace hanbz\PassportClient\Two;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Laravel\Socialite\Contracts\Provider as ProviderContract;
+use hanbz\PassportClient\Contracts\Provider as ProviderContract;
 
 abstract class AbstractProvider implements ProviderContract
 {
@@ -111,7 +112,7 @@ abstract class AbstractProvider implements ProviderContract
      * Get the authentication URL for the provider.
      *
      * @param  string  $state
-     * @return string
+     * @ret     urn string
      */
     abstract protected function getAuthUrl($state);
 
@@ -134,7 +135,7 @@ abstract class AbstractProvider implements ProviderContract
      * Map the raw user array to a Socialite User instance.
      *
      * @param  array  $user
-     * @return \Laravel\Socialite\Two\User
+     * @return \hanbz\PassportClient\Two\User
      */
     abstract protected function mapUserToObject(array $user);
 
@@ -224,7 +225,7 @@ abstract class AbstractProvider implements ProviderContract
      * Get a Social User instance from a known access token.
      *
      * @param  string  $token
-     * @return \Laravel\Socialite\Two\User
+     * @return \hanbz\PassportClient\Two\User
      */
     public function userFromToken($token)
     {

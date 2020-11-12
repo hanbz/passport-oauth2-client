@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Socialite\Tests;
+namespace hanbz\PassportClient\Tests;
 
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Laravel\Socialite\One\MissingTemporaryCredentialsException;
-use Laravel\Socialite\One\MissingVerifierException;
-use Laravel\Socialite\One\User as SocialiteUser;
-use Laravel\Socialite\Tests\Fixtures\OAuthOneTestProviderStub;
+use hanbz\PassportClient\One\MissingTemporaryCredentialsException;
+use hanbz\PassportClient\One\MissingVerifierException;
+use hanbz\PassportClient\One\User as SocialiteUser;
+use hanbz\PassportClient\Tests\Fixtures\OAuthOneTestProviderStub;
 use League\OAuth1\Client\Credentials\TemporaryCredentials;
 use League\OAuth1\Client\Credentials\TokenCredentials;
 use League\OAuth1\Client\Server\Twitter;

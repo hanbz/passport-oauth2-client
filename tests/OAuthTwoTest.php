@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Socialite\Tests;
+namespace hanbz\PassportClient\Tests;
 
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Laravel\Socialite\Tests\Fixtures\FacebookTestProviderStub;
-use Laravel\Socialite\Tests\Fixtures\OAuthTwoTestProviderStub;
-use Laravel\Socialite\Two\InvalidStateException;
-use Laravel\Socialite\Two\User;
+use hanbz\PassportClient\Tests\Fixtures\FacebookTestProviderStub;
+use hanbz\PassportClient\Tests\Fixtures\OAuthTwoTestProviderStub;
+use hanbz\PassportClient\Two\InvalidStateException;
+use hanbz\PassportClient\Two\User;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use stdClass;

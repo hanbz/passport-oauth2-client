@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Socialite\Tests\Fixtures;
+namespace hanbz\PassportClient\Tests\Fixtures;
 
-use Laravel\Socialite\One\AbstractProvider;
+use hanbz\PassportClient\One\AbstractProvider;
 
 class OAuthOneTestProviderStub extends AbstractProvider
 {

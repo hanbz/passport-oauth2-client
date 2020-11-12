@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Socialite\Tests;
+namespace hanbz\PassportClient\Tests;
 
-use Laravel\Socialite\Contracts\Factory;
-use Laravel\Socialite\SocialiteServiceProvider;
-use Laravel\Socialite\Two\GithubProvider;
+use hanbz\PassportClient\Contracts\Factory;
+use hanbz\PassportClient\SocialiteServiceProvider;
+use hanbz\PassportClient\Two\GithubProvider;
 use Orchestra\Testbench\TestCase;
 
 class SocialiteManagerTest extends TestCase

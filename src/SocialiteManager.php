@@ -1,18 +1,19 @@
 <?php
 
-namespace Laravel\Socialite;
+namespace hanbz\PassportClient;
 
+use hanbz\PassportClient\Two\PassportProvider;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Manager;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
-use Laravel\Socialite\One\TwitterProvider;
-use Laravel\Socialite\Two\BitbucketProvider;
-use Laravel\Socialite\Two\FacebookProvider;
-use Laravel\Socialite\Two\GithubProvider;
-use Laravel\Socialite\Two\GitlabProvider;
-use Laravel\Socialite\Two\GoogleProvider;
-use Laravel\Socialite\Two\LinkedInProvider;
+use hanbz\PassportClient\One\TwitterProvider;
+use hanbz\PassportClient\Two\BitbucketProvider;
+use hanbz\PassportClient\Two\FacebookProvider;
+use hanbz\PassportClient\Two\GithubProvider;
+use hanbz\PassportClient\Two\GitlabProvider;
+use hanbz\PassportClient\Two\GoogleProvider;
+use hanbz\PassportClient\Two\LinkedInProvider;
 use League\OAuth1\Client\Server\Twitter as TwitterServer;
 
 class SocialiteManager extends Manager implements Contracts\Factory
@@ -20,7 +21,7 @@ class SocialiteManager extends Manager implements Contracts\Factory
     /**
      * Get a driver instance.
      *
-     * @param  string  $driver
+     * @param string $driver
      * @return mixed
      */
     public function with($driver)
@@ -31,7 +32,7 @@ class SocialiteManager extends Manager implements Contracts\Factory
     /**
      * Create an instance of the specified driver.
      *
-     * @return \Laravel\Socialite\Two\AbstractProvider
+     * @return \hanbz\PassportClient\Two\AbstractProvider
      */
     protected function createGithubDriver()
     {
@@ -45,7 +46,7 @@ class SocialiteManager extends Manager implements Contracts\Factory
     /**
      * Create an instance of the specified driver.
      *
-     * @return \Laravel\Socialite\Two\AbstractProvider
+     * @return \hanbz\PassportClient\Two\AbstractProvider
      */
     protected function createFacebookDriver()
     {
@@ -59,7 +60,7 @@ class SocialiteManager extends Manager implements Contracts\Factory
     /**
      * Create an instance of the specified driver.
      *
-     * @return \Laravel\Socialite\Two\AbstractProvider
+     * @return \hanbz\PassportClient\Two\AbstractProvider
      */
     protected function createGoogleDriver()
     {
@@ -73,35 +74,35 @@ class SocialiteManager extends Manager implements Contracts\Factory
     /**
      * Create an instance of the specified driver.
      *
-     * @return \Laravel\Socialite\Two\AbstractProvider
+     * @return \hanbz\PassportClient\Two\AbstractProvider
      */
     protected function createLinkedinDriver()
     {
         $config = $this->config->get('services.linkedin');
 
         return $this->buildProvider(
-          LinkedInProvider::class, $config
+            LinkedInProvider::class, $config
         );
     }
 
     /**
      * Create an instance of the specified driver.
      *
-     * @return \Laravel\Socialite\Two\AbstractProvider
+     * @return \hanbz\PassportClient\Two\AbstractProvider
      */
     protected function createBitbucketDriver()
     {
         $config = $this->config->get('services.bitbucket');
 
         return $this->buildProvider(
-          BitbucketProvider::class, $config
+            BitbucketProvider::class, $config
         );
     }
 
     /**
      * Create an instance of the specified driver.
      *
-     * @return \Laravel\Socialite\Two\AbstractProvider
+     * @return \hanbz\PassportClient\Two\AbstractProvider
      */
     protected function createGitlabDriver()
     {
@@ -113,11 +114,29 @@ class SocialiteManager extends Manager implements Contracts\Factory
     }
 
     /**
+     * Create an instance of the specified driver.
+     *
+     * @return \hanbz\PassportClient\Two\AbstractProvider
+     */
+    protected function createPassportDriver()
+    {
+        $config = $this->config->get('services.passport');
+
+        $provider = $this->buildProvider(
+            PassportProvider::class, $config
+        );
+
+        $provider->setDomain(Arr::get($config,'domain'));
+
+        return $provider;
+    }
+
+    /**
      * Build an OAuth 2 provider instance.
      *
-     * @param  string  $provider
-     * @param  array  $config
-     * @return \Laravel\Socialite\Two\AbstractProvider
+     * @param string $provider
+     * @param array $config
+     * @return \hanbz\PassportClient\Two\AbstractProvider
      */
     public function buildProvider($provider, $config)
     {
@@ -131,7 +150,7 @@ class SocialiteManager extends Manager implements Contracts\Factory
     /**
      * Create an instance of the specified driver.
      *
-     * @return \Laravel\Socialite\One\AbstractProvider
+     * @return TwitterProvider
      */
     protected function createTwitterDriver()
     {
@@ -145,7 +164,7 @@ class SocialiteManager extends Manager implements Contracts\Factory
     /**
      * Format the server configuration.
      *
-     * @param  array  $config
+     * @param array $config
      * @return array
      */
     public function formatConfig(array $config)
@@ -160,7 +179,7 @@ class SocialiteManager extends Manager implements Contracts\Factory
     /**
      * Format the callback URL, resolving a relative URI if needed.
      *
-     * @param  array  $config
+     * @param array $config
      * @return string
      */
     protected function formatRedirectUrl(array $config)
@@ -168,8 +187,8 @@ class SocialiteManager extends Manager implements Contracts\Factory
         $redirect = value($config['redirect']);
 
         return Str::startsWith($redirect, '/')
-                    ? $this->container->make('url')->to($redirect)
-                    : $redirect;
+            ? $this->container->make('url')->to($redirect)
+            : $redirect;
     }
 
     /**

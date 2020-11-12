@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Socialite\Contracts;
+namespace hanbz\PassportClient\Contracts;
 
 interface User
 {

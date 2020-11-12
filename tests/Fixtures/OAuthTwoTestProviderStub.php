@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Socialite\Tests\Fixtures;
+namespace hanbz\PassportClient\Tests\Fixtures;
 
-use Laravel\Socialite\Two\AbstractProvider;
-use Laravel\Socialite\Two\User;
+use hanbz\PassportClient\Two\AbstractProvider;
+use hanbz\PassportClient\Two\User;
 use Mockery as m;
 use stdClass;
 

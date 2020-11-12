@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Socialite\One;
+namespace hanbz\PassportClient\One;
 
 class TwitterProvider extends AbstractProvider
 {

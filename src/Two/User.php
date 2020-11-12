@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Socialite\Two;
+namespace hanbz\PassportClient\Two;
 
-use Laravel\Socialite\AbstractUser;
+use hanbz\PassportClient\AbstractUser;
 
 class User extends AbstractUser
 {

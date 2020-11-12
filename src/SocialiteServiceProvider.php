@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Socialite;
+namespace hanbz\PassportClient;
 
 use Illuminate\Support\ServiceProvider;
-use Laravel\Socialite\Contracts\Factory;
+use hanbz\PassportClient\Contracts\Factory;
 
 class SocialiteServiceProvider extends ServiceProvider
 {

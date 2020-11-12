@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Socialite\Tests\Fixtures;
+namespace hanbz\PassportClient\Tests\Fixtures;
 
-use Laravel\Socialite\Two\FacebookProvider;
+use hanbz\PassportClient\Two\FacebookProvider;
 use Mockery as m;
 use stdClass;
 
