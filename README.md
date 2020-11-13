@@ -18,8 +18,8 @@ $ composer require hanbz/passport-client
 
 add the config at .env
 ```
-CLIENT_ID=oauth client
-CLIENT_SECRET=oauth secert
+CLIENT_ID=oauth_client
+CLIENT_SECRET=oauth_secert
 REDIRECT=your_callback_url
 OAUTH_DOMAIN=your_oauth_server
 ```
